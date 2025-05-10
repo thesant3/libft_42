@@ -6,7 +6,7 @@
 #    By: sgomez-m <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/06 13:32:52 by sgomez-m          #+#    #+#              #
-#    Updated: 2025/05/09 14:22:04 by sgomez-m         ###   ########.fr        #
+#    Updated: 2025/05/10 20:09:40 by sgomez-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,9 @@ SRC =	$(SRCDIR)ft_bzero.c		\
 		$(SRCDIR)ft_strrchr.c	\
 		$(SRCDIR)ft_tolower.c	\
 		$(SRCDIR)ft_toupper.c	\
+		$(SRCDIR)ft_calloc.c	\
+		$(SRCDIR)ft_strdup.c	\
+		$(SRCDIR)*ft_substr.c	\
 #
 OBJ = $(SRC:$(SRCDIR)%.c=$(OBJDIR)%.o)
 
