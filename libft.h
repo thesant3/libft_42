@@ -15,12 +15,7 @@
 # include <ctype.h>
 # include <stddef.h>
 # include <stdio.h>
-<<<<<<< HEAD
-# include <unistd.h>
-=======
 # include <stdlib.h>
->>>>>>> b37d8148ae1ac98b42337d049e7d00207c0fdad4
-
 //importing functions
 
 char	*ft_strchr(const char *s, int c);
