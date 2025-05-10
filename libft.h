@@ -15,6 +15,7 @@
 # include <ctype.h>
 # include <stddef.h>
 # include <stdio.h>
+# include <unistd.h>
 
 //importing functions
 
