@@ -11,3 +11,12 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+
+void	*calloc(size_t nmemb, size_t size)
+{
+	void	*ptr;
+
+	ptr = malloc(nmemb * size);
+	ft_memset(ptr, 0, (nmemb * size));
+	return (ptr);
+}
