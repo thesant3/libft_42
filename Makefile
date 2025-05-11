@@ -44,7 +44,7 @@ SRC =	$(SRCDIR)ft_bzero.c		\
 		$(SRCDIR)ft_toupper.c	\
 		$(SRCDIR)ft_calloc.c	\
 		$(SRCDIR)ft_strdup.c	\
-		$(SRCDIR)*ft_substr.c	\
+		$(SRCDIR)ft_substr.c	\
 #
 OBJ = $(SRC:$(SRCDIR)%.c=$(OBJDIR)%.o)
 
