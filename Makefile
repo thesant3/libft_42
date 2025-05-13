@@ -6,7 +6,7 @@
 #    By: sgomez-m <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/06 13:32:52 by sgomez-m          #+#    #+#              #
-#    Updated: 2025/05/12 14:44:28 by sgomez-m         ###   ########.fr        #
+#    Updated: 2025/05/13 18:15:46 by sgomez-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,11 @@ SRC =	$(SRCDIR)ft_bzero.c		\
 		$(SRCDIR)ft_strjoin.c	\
 		$(SRCDIR)ft_strtrim.c	\
 		$(SRCDIR)ft_strmapi.c	\
+		$(SRCDIR)ft_itoa.c	\
+		$(SRCDIR)ft_striteri.c	\
+		$(SRCDIR)ft_putchar_fd.c\
+
+
 #
 OBJ = $(SRC:$(SRCDIR)%.c=$(OBJDIR)%.o)
 
