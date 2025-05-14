@@ -6,7 +6,7 @@
 /*   By: sgomez-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 18:24:44 by sgomez-m          #+#    #+#             */
-/*   Updated: 2025/05/13 17:26:45 by sgomez-m         ###   ########.fr       */
+/*   Updated: 2025/05/14 18:52:52 by sgomez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 int	ft_num_len(int n, char **ptr)
 {
 	long	n2;
-	int	len;
-	
+	int		len;
+
 	n2 = (long)n;
 	if (n2 < 0)
 		n2 *= (long)-1;
@@ -35,14 +35,12 @@ int	ft_num_len(int n, char **ptr)
 
 char	*ft_itoa(int n)
 {
-	char  *str;
-	long  num;
-	//int   i;
-	int   len;
-	//if (!n)
-	////  return (NULL);
+	char	*str;
+	long	num;
+	int		len;
+
 	if (n == 0)
-		return(ft_strdup("0"));
+		return (ft_strdup("0"));
 	len = ft_num_len(n, &str);
 	num = (long)n;
 	if (num < 0)
@@ -53,7 +51,6 @@ char	*ft_itoa(int n)
 	}
 	while (num > 9)
 	{
-		//i = (int) (n2 % 10);
 		str[len - 1] = (num % 10) + '0';
 		num /= 10;
 		len--;
