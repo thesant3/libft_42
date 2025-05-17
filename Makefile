@@ -6,7 +6,7 @@
 #    By: sgomez-m <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/06 13:32:52 by sgomez-m          #+#    #+#              #
-#    Updated: 2025/05/14 19:35:46 by sgomez-m         ###   ########.fr        #
+#    Updated: 2025/05/15 22:58:46 by sgomez-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,6 +54,7 @@ SRC =	$(SRCDIR)ft_bzero.c		\
 		$(SRCDIR)ft_putstr_fd.c	\
 		$(SRCDIR)ft_putendl_fd.c \
 		$(SRCDIR)ft_putnbr_fd.c	 \
+		$(SRCDIR)ft_split.c	\
 
 
 #
