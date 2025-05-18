@@ -35,7 +35,9 @@ static void	count_words(char *ptr, char c, char ***ptp)
 	if (in_word > 0 && (ptr[i] == '\0'))
 		count++;
 	*ptp = (char**)malloc((count + 1) *  sizeof(char*));
-	(*ptp)[count] = NULL;
+	if (!ptp)
+		return (NULL);
+	(*ptp)[count] = '\0';
 }
 
 
