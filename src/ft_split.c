@@ -6,13 +6,13 @@
 /*   By: sgomez-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 17:52:07 by sgomez-m          #+#    #+#             */
-/*   Updated: 2025/05/19 00:10:20 by sgomez-m         ###   ########.fr       */
+/*   Updated: 2025/05/20 00:56:34 by sgomez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	count_words(char *ptr, char c, char ***ptp)
+static void	ft_memarr(char *ptr, char c, char ***ptp)
 {
 	int	in_word;
 	int	count;
@@ -23,17 +23,15 @@ static void	count_words(char *ptr, char c, char ***ptp)
 	i = 0;
 	while (ptr[i])
 	{
-		if (in_word > 0 && ptr[i] == c)
+		if (ptr[i] != c && in_word == 0)
 		{
 			count++;
-			in_word = 0;
-		}
-		else if (ptr[i] != c)
 			in_word++;
+		}
+		else if (ptr[i] == c)
+			in_word = 0;
 		i++;
 	}
-	if (in_word > 0 && (ptr[i] == '\0'))
-		count++;
 	*ptp = (char **) malloc((count + 1) * sizeof(char *));
 	(*ptp)[count] = NULL;
 }
@@ -44,8 +42,12 @@ char	**ft_split(char const *s, char c)
 	char	**split;
 	int		in_word;
 	int		j;
-
-	count_words((char *)s, c, &split);
+	
+	if (!s)
+		return (NULL);
+	ft_memarr((char *)s, c, &split);
+	if (!split)
+		return (NULL);
 	in_word = 0;
 	i = 0;
 	j = 0;

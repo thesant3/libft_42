@@ -6,17 +6,24 @@
 /*   By: sgomez-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 13:31:10 by sgomez-m          #+#    #+#             */
-/*   Updated: 2025/05/15 23:00:06 by sgomez-m         ###   ########.fr       */
+/*   Updated: 2025/05/19 22:38:50 by sgomez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-# include <ctype.h>
+
 # include <stddef.h>
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
+
+// struct t_list
+typedef struct s_list
+{
+	struct s_list	*next;
+	void			*content;
+}			t_list;
 
 //importing functions
 
@@ -55,5 +62,7 @@ char	**ft_split(char const *s, char c);
 size_t	ft_strlcpy(char *dest, char *src, size_t size);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
 size_t	ft_strlen(const char *str);
+t_list	*ft_lstnew(void *content);
+
 
 #endif
