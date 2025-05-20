@@ -6,13 +6,13 @@
 /*   By: sgomez-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 17:52:07 by sgomez-m          #+#    #+#             */
-/*   Updated: 2025/05/18 00:00:56 by sgomez-m         ###   ########.fr       */
+/*   Updated: 2025/05/20 00:56:34 by sgomez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	count_words(char *ptr, char c, char ***ptp)
+static void	ft_memarr(char *ptr, char c, char ***ptp)
 {
 	int	in_word;
 	int	count;
@@ -23,82 +23,44 @@ static void	count_words(char *ptr, char c, char ***ptp)
 	i = 0;
 	while (ptr[i])
 	{
-		if (in_word > 0 && ptr[i] == c)
+		if (ptr[i] != c && in_word == 0)
 		{
 			count++;
-			in_word = 0;
-		}
-		else if (ptr[i] != c)
 			in_word++;
+		}
+		else if (ptr[i] == c)
+			in_word = 0;
 		i++;
 	}
-	if (in_word > 0 && (ptr[i] == '\0'))
-		count++;
-	*ptp = (char**)malloc((count + 1) *  sizeof(char*));
-	if (!ptp)
-		return (NULL);
-	(*ptp)[count] = '\0';
+	*ptp = (char **) malloc((count + 1) * sizeof(char *));
+	(*ptp)[count] = NULL;
 }
-
 
 char	**ft_split(char const *s, char c)
 {
-	int	in_word;
-	int	ini;
-	int	i;
-	//char	*word;
+	size_t	i;
 	char	**split;
-	//size_t	len;
-	int	j;
-
-	split = NULL;
-	count_words((char*)s, c, &split);
-	//len = ft_strlen((const char*)split);
+	int		in_word;
+	int		j;
+	
+	if (!s)
+		return (NULL);
+	ft_memarr((char *)s, c, &split);
+	if (!split)
+		return (NULL);
 	in_word = 0;
 	i = 0;
 	j = 0;
-	//char *a;
-	while (s[i])
+	while (ft_strlen(s) >= i)
 	{
-		if (in_word > 0 && s[i] == c)
-		
+		if ((in_word > 0 && s[i] == c) || (in_word > 0 && !s[i]))
 		{
-			//word = ft_substr(s, ini, in_word);
-			//ft_strlcat(*split, word, len);
-			//a = ft_substr(s, ini, in_word);
-			split[j] = ft_substr(s, ini, in_word);
-			printf("%s -- ",split[j]);
-			
-			//free(word);
+			split[j++] = ft_substr(s, i - in_word, in_word);
 			in_word = 0;
-			j++;
 		}
 		else if (s[i] != c)
 			in_word++;
-		if (in_word == 1)
-			ini = i;
 		i++;
 	}
-	split[j] = ft_substr(s, ini, in_word);
-
-	//free(word);
 	return (split);
 }
-/*
-int main() {
-  char a[] = "Hola Mun   do Mundial   d  los o";
-  char **b;
-  b = ft_split(a, ' ');
-  printf("%s\n",a);
-  int j = 0;
-  char *k;
-  while (j < 7)
-  {
-  	k = (char *)b[j];
-	printf("%s",k);
-	j++;
-  
-  }
-  //printf("%lu",b);
-  return 0;
-}*/

@@ -6,7 +6,7 @@
 #    By: sgomez-m <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/06 13:32:52 by sgomez-m          #+#    #+#              #
-#    Updated: 2025/05/15 22:58:46 by sgomez-m         ###   ########.fr        #
+#    Updated: 2025/05/19 22:36:07 by sgomez-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,10 +15,11 @@ NAME = libft.a
 
 SRCDIR = src/
 OBJDIR = obj/
+SRCDIR_BONUS = src/
 
 #compiler and flags
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -I ./
 
 #source files and object files
 SRC =	$(SRCDIR)ft_bzero.c		\
@@ -56,12 +57,13 @@ SRC =	$(SRCDIR)ft_bzero.c		\
 		$(SRCDIR)ft_putnbr_fd.c	 \
 		$(SRCDIR)ft_split.c	\
 
+SRC_BONUS = $(SRCDIR_BONUS)ft_lstnew_bonus.c	\
+
 
 #
 OBJ = $(SRC:$(SRCDIR)%.c=$(OBJDIR)%.o)
 
-#Header file
-INCLUDE = include
+OBJ_BONUS = $(SRC_BONUS:$(SRCDIR_BONUS)%.c=$(OBJDIR)%.o)
 
 #make library and delete files
 AR = ar rcs 
@@ -71,24 +73,32 @@ RM = rm -rf
 #rule to compile everything
 
 #indicate that the next rules are not real files
-.PHONY: all clean fclean re
+.PHONY: all bonus clean fclean re
 
 all: $(NAME)
 
 $(OBJDIR):
 	mkdir $@
 
+
 #rule to make the library
 $(NAME): $(OBJDIR) $(OBJ)
-	$(AR) $(NAME) $(OBJ)
+	$(AR) $(NAME) $(OBJ) 
 
 #.c to .o
 $(OBJDIR)%.o: $(SRCDIR)%.c
-	$(CC) $(CFLAGS) -I ./$(INCLUDE) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
+
+#.c to .o bonus
+$(OBJDIR)%.o: $(SRCDIR_BONUS)%.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+bonus: $(OBJ) $(OBJ_BONUS)
+	$(AR) $(NAME) $(OBJ) $(OBJ_BONUS)
 
 #Delete all .o file
 clean:
-	$(RM) $(OBJDIR)
+	$(RM) $(OBJDIR) $(OBJDIR_BONUS)
 
 #delete all .o and .a files
 fclean: clean

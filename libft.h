@@ -6,13 +6,13 @@
 /*   By: sgomez-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 13:31:10 by sgomez-m          #+#    #+#             */
-/*   Updated: 2025/05/15 23:00:06 by sgomez-m         ###   ########.fr       */
+/*   Updated: 2025/05/19 22:38:50 by sgomez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-# include <ctype.h>
+
 # include <stddef.h>
 # include <unistd.h>
 # include <stdio.h>
