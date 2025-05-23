@@ -42,6 +42,8 @@ char	*ft_itoa(int n)
 	if (n == 0)
 		return (ft_strdup("0"));
 	len = ft_num_len(n, &str);
+	if (!str)
+		return (NULL);
 	num = (long)n;
 	if (num < 0)
 	{

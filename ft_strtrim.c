@@ -64,7 +64,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 	ini = ft_init_trim(s1, set);
 	fn = ft_fin_trim(s1, set);
 	len = 1 + (fn - ini);
-	ns = calloc(len, sizeof(char));
 	ns = ft_substr(s1, ini, len);
 	return (ns);
 }
