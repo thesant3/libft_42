@@ -86,12 +86,11 @@ RM = rm -rf
 
 #target and dependcies
 #rule to compile everything
-all: $(NAME
-	mkdir -p $(BIN_DIR)
+all: $(NAME)
 
 #rule to make the library
-$(NAME):  $(OBJ)
-	mkdir -p $(OBJ_DIR)
+$(NAME) : $(OBJ)
+	mkdir -p $(BIN_DIR)
 	$(AR) $(NAME) $(OBJ)
 
 #rule to make the library and the bonus
