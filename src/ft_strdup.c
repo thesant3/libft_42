@@ -12,15 +12,23 @@
 
 #include "libft.h"
 
+/*
+**Duplicates the given string using malloc.
+**Parameters: const char *s - the string to duplicate
+**Returns: a pointer to the duplicated string,
+**or Null if memory allocation fails.
+*/
 char	*ft_strdup(const char *s)
 {
-	size_t	n;
-	void	*ptr;
+	char	*new_string;
+	size_t	len;
 
-	n = ft_strlen(s) + 1;
-	ptr = malloc(n);
-	if (!ptr)
+	if (!s)
 		return (NULL);
-	ft_strlcpy(ptr, (char *)s, n);
-	return (ptr);
+	len = ft_strlen(s) + 1;
+	new_string = malloc(n);
+	if (!new_String)
+		return (NULL);
+	ft_strlcpy(new_string, (char *)s, len);
+	return (newstring);
 }
