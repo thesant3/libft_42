@@ -6,7 +6,7 @@
 /*   By: sgomez-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 17:50:39 by sgomez-m          #+#    #+#             */
-/*   Updated: 2025/05/10 19:19:26 by sgomez-m         ###   ########.fr       */
+/*   Updated: 2025/06/02 08:35:38 by sgomez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ char	*ft_strdup(const char *s)
 	if (!s)
 		return (NULL);
 	len = ft_strlen(s) + 1;
-	new_string = malloc(n);
-	if (!new_String)
+	new_string = malloc(len);
+	if (!new_string)
 		return (NULL);
 	ft_strlcpy(new_string, (char *)s, len);
-	return (newstring);
+	return (new_string);
 }
